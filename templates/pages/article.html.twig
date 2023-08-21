@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <h1>{{ content.title }}</h1>
+
+    {% if content.image|length %}
+        {% set image = content.image[0] %}
+
+        {% set imageUrl = image.formats['my_thumb'] is defined ? image.formats['my_thumb'] : image.url %}
+        <img src="{{ imageUrl }}" alt="{{ image.fileVersion.name }}"/>
+    {% endif %}
+
+    <div>
+        {{ content.content|raw }}
+    </div>
+
+{% endblock %}
