@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <h1>{{ content.title }}</h1>
+
+    <ul>
+        {% for article in content.articles %}{{ dump(article) }}
+            <li>
+                <a href="{{ article.url }}">
+                    {{ article.title }} - {{ article.content }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
